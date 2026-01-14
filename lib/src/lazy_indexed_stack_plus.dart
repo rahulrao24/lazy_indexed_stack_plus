@@ -1,7 +1,40 @@
 import 'package:flutter/foundation.dart' show listEquals, setEquals;
 import 'package:flutter/widgets.dart';
 
+/// {@template lazy_indexed_stack_plus}
+/// A widget that behaves like [IndexedStack] but loads its children lazily.
+///
+/// Unlike a standard [IndexedStack], which inflates all children immediately,
+/// [LazyIndexedStackPlus] only builds a child when it first becomes active
+/// (the [index] matches) or if it is included in [preloadIndexes].
+///
+/// Once a child has been built, it is kept in the widget tree to maintain
+/// its state (e.g., scroll position, text input).
+///
+///
+/// This sample shows the usage of [LazyIndexedStackPlus]
+///
+/// ```dart
+/// LazyIndexedStackPlus(
+///   index: 0,
+///   preloadIndexes: {1}, // Optional: Preload specific tabs /indexes
+///   placeholder: Center(child: CircularProgressIndicator()),
+///   children: [
+///     HomeTab(),
+///     ProfileTab(),
+///     SettingsTab(),
+///   ],
+/// );
+/// ```
+///
+/// See also:
+///
+/// * [IndexedStack], for more details about the widget.
+/// * [Stack], for more details about the widget.
+/// * The [catalog of layout widgets](https://flutter.dev/widgets/layout/).
+/// {@endtemplate}
 class LazyIndexedStackPlus extends StatefulWidget {
+  /// {@macro lazy_indexed_stack_plus}
   const LazyIndexedStackPlus({
     super.key,
     this.index = 0,
@@ -14,13 +47,72 @@ class LazyIndexedStackPlus extends StatefulWidget {
     this.children = const <Widget>[],
   });
 
+  /// {@template lazy_indexed_stack_plus.index}
+  /// The index of the child to show.
+  ///
+  /// When this value changes, the child at the new index will be built
+  /// if it hasn't been built already.
+  ///
+  /// Defaults to 0
+  /// {@endtemplate}
   final int index;
+
+  /// {@template lazy_indexed_stack_plus.alignment}
+  /// How to align the children in the stack.
+  ///
+  /// Defaults to [AlignmentDirectional.topStart].
+  ///
+  /// See [Stack.alignment] for more information.
+  /// {@endtemplate}
   final AlignmentGeometry alignment;
+
+  /// {@template lazy_indexed_stack_plus.sizing}
+  /// How to size the non-positioned children in the stack.
+  ///
+  /// Defaults to [StackFit.loose].
+  ///
+  /// See [Stack.fit] for more information.
+  /// {@endtemplate}
   final StackFit sizing;
+
+  /// {@template lazy_indexed_stack_plus.clip}
+  /// Whether to clip the overflow of children.
+  ///
+  /// Defaults to [Clip.hardEdge].
+  /// {@endtemplate}
   final Clip clipBehavior;
+
+  /// {@template lazy_indexed_stack_plus.textDirection}
+  /// The text direction with which to resolve [alignment].
+  ///
+  /// Defaults to the ambient [Directionality].
+  /// {@endtemplate}
   final TextDirection? textDirection;
+
+  /// {@template lazy_indexed_stack_plus.placeholder}
+  /// The widget to display for children that have not been initialized yet.
+  ///
+  /// Defaults to [SizedBox.shrink].
+  /// {@endtemplate}
   final Widget placeholder;
+
+  /// {@template lazy_indexed_stack_plus.indexes}
+  /// A set of indexes that should be built immediately, even if they are
+  /// not the current [index].
+  ///
+  /// This is useful for pre-fetching data or warming up heavy UI components
+  /// before the user navigates to them.
+  /// {@endtemplate}
   final Set<int> preloadIndexes;
+
+  /// {@template lazy_indexed_stack_plus.children}
+  /// The list of widgets to be displayed in the stack.
+  ///
+  /// Children are built lazily; they are replaced by [placeholder] until
+  /// they are activated by [index] or [preloadIndexes].
+  ///
+  /// See [Stack.children] for more information.
+  /// {@endtemplate}
   final List<Widget> children;
 
   @override
