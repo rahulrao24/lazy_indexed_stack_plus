@@ -1,3 +1,9 @@
+## 0.0.2
+
+* chore: stable `0.0.2` release 🎉
+* docs: add LazyIndexedStackPlus documentation
+* refactor: add example code
+
 ## 0.0.1
 
 Initial version of the library.
