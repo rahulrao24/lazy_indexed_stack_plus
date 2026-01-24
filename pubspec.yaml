@@ -1,6 +1,6 @@
 name: lazy_indexed_stack_plus
 description: "The ultimate enhanced IndexedStack with lazy loading, preloading, and state preservation made easy for optimized Flutter apps."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/rahulrao24/lazy_indexed_stack_plus
 repository: https://github.com/rahulrao24/lazy_indexed_stack_plus
 issue_tracker: https://github.com/rahulrao24/lazy_indexed_stack_plus/issues

@@ -1,3 +1,8 @@
+## 0.0.3
+
+* chore: stable `0.0.3` release 🎉
+* fix: add fix to dot-shorthand lint
+
 ## 0.0.2
 
 * chore: stable `0.0.2` release 🎉
