@@ -71,10 +71,10 @@ packages:
     dependency: "direct main"
     description:
       name: lazy_indexed_stack_plus
-      sha256: "4b389a2df33f518c486ffc2b19f235a665a3ec0904b0d98fcc196d281d2206fe"
+      sha256: ca7b87d93611c1c592cf23b64efb48ca2a87199b0ad65c742fec09a4fc9c12e6
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   leak_tracker:
     dependency: transitive
     description:
