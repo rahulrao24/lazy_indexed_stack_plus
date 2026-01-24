@@ -6,8 +6,8 @@ import 'package:lazy_indexed_stack_plus/lazy_indexed_stack_plus.dart';
 void main() {
   group('MyApp', () {
     testWidgets('renders a MaterialApp (MyApp) with a DashboardPage', (
-        WidgetTester tester,
-        ) async {
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       expect(find.byType(MyApp), findsOneWidget);
       expect(find.byType(MaterialApp), findsOneWidget);
@@ -23,7 +23,7 @@ void main() {
 
     testWidgets(
       'renders LazyIndexedStackPlus with default index and preloadIndexes',
-          (WidgetTester tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(const MaterialApp(home: DashboardPage()));
         expect(find.byType(DashboardPage), findsOneWidget);
         expect(find.text(title), findsOneWidget);
@@ -46,8 +46,8 @@ void main() {
     );
 
     testWidgets('renders ProfilePage when index changed to one', (
-        WidgetTester tester,
-        ) async {
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(const MaterialApp(home: DashboardPage()));
       await tester.tap(find.byIcon(Icons.person));
       await tester.pumpAndSettle();
@@ -69,8 +69,8 @@ void main() {
 
   group('HomePage', () {
     testWidgets('renders HomePage with a Center widget and a Text widget', (
-        WidgetTester tester,
-        ) async {
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(const MaterialApp(home: HomePage()));
       expect(find.byType(Center), findsOneWidget);
       expect(find.byType(Text), findsOneWidget);
@@ -80,8 +80,8 @@ void main() {
 
   group('ProfilePage', () {
     testWidgets('renders ProfilePage with a Center widget and a Text widget', (
-        WidgetTester tester,
-        ) async {
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(const MaterialApp(home: ProfilePage()));
       expect(find.byType(Center), findsOneWidget);
       expect(find.byType(Text), findsOneWidget);
@@ -91,8 +91,8 @@ void main() {
 
   group('SettingsPage', () {
     testWidgets('renders SettingsPage with a Center widget and a Text widget', (
-        WidgetTester tester,
-        ) async {
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(const MaterialApp(home: SettingsPage()));
       expect(find.byType(Center), findsOneWidget);
       expect(find.byType(Text), findsOneWidget);
